@@ -22,4 +22,5 @@
 - Where to access?
   - In AWS console, select an EC2 instance → select ‘Connect’ blue button at the top tabs → select connect with ‘EC2 instance connect’
 - Only available for Amazon Linux 2 AMI
-- [ go back ](#index)
+
+[ go back ](#index)
