@@ -17,7 +17,7 @@
   
   
   
-##### EC2 instance connect as an alternative to SSH 
+### EC2 instance connect as an alternative to SSH 
 - A browser based terminal 
 - Where to access?
   - In AWS console, select an EC2 instance → select ‘Connect’ blue button at the top tabs → select connect with ‘EC2 instance connect’
