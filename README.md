@@ -6,12 +6,16 @@
 **Compute**
 - ***EC2***
   - [EC2 instance connect as an alternative to SSH ](#ec2-instance-connect-as-an-alternative-to-SSH)
+  
 **Storage**
 - ***S3***
+
 **Database**
 - ***ElastiCache***
+
 **Networking & Content Delivery**
 - ***VPC***
+
 **Developer Tools**
 - ***CodeCommit***
   
