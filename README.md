@@ -2,18 +2,18 @@
 
 ## Index
 
-- Background
-- Compute
-  - EC2
-    - [EC2 instance connect as an alternative to SSH ](#ec2-instance-connect-as-an-alternative-to-SSH)
-- Storage
-  - S3
-- Database
-  - ElastiCache
-- Networking & Content Delivery
-  - VPC
-- Developer Tools
-  - CodeCommit
+**Background**
+**Compute**
+- ***EC2***
+  - [EC2 instance connect as an alternative to SSH ](#ec2-instance-connect-as-an-alternative-to-SSH)
+**Storage**
+- ***S3***
+**Database**
+- ***ElastiCache***
+**Networking & Content Delivery**
+- ***VPC***
+**Developer Tools**
+- ***CodeCommit***
   
   
   
@@ -24,3 +24,8 @@
 - Only available for Amazon Linux 2 AMI
 
 [ go back ](#index)
+
+
+#### EC2 user data
+- common purpose: to automate boot tasks and the script would be executed when machine first starts
+- user data is the data passed to EC2 machine and can be used by EC2 machine
