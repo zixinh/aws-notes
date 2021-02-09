@@ -17,6 +17,7 @@
 - ***VPC***
 - ***API Gateway***
   - [Mapping Template](#api-gateway-mapping-template)
+  - [API Canary Deployment](#api-canary-deployment)
 
 **Application Integration**
 - ***Step Function***
@@ -44,6 +45,18 @@
 #### API gateway mapping template
 - purpose: Transform content before sending to designated service e.x lambda or before sending back to client
 - workflow: Client → method request → integration request e.x. Mapping → aws service e.x. lambda → integration response → method response → client 
+
+[ back to index ](#index)
+
+
+#### API canary deployment
+- Admins can set canary deployment for an API endpoint with same name
+- Example  
+  - Given existing stage A and canary deployment is enabled
+  - when a new change is deployed to stage A, API gateway automatically shift designated percentage of traffic to new API
+  - If new change is working well, click ‘promote canary’ to shift all traffic to new API
+
+[ back to index ](#index)
 
 
 #### Step Function Intro and Comparison
