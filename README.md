@@ -41,7 +41,7 @@
 
 
 #### Step Function Intro and Comparison
-- Purpose: *Serverless* orchestration tools using visual workflows
+- Purpose: #Serverless# orchestration tools using visual workflows
 - Features
   - Visually manage components of orchestration
   - Manually manage different serverless service are difficult, step functions provide a workflow-based tool to better orchestrate serverless application
