@@ -18,7 +18,7 @@
 
 **Application Integration**
 - ***Step Function***
-  - [vs Cloudwatch Events](#step-function-intro-&-comparison)
+  - [vs Cloudwatch Events](#step-function-intro-and-comparison)
 
 **Developer Tools**
 - ***CodeCommit***
@@ -34,14 +34,8 @@
 [ back to index ](#index)
 
 
-#### EC2 user data
-- common purpose: to automate boot tasks and the script would be executed when machine first starts
-- user data is the data passed to EC2 machine and can be used by EC2 machine
 
-[ back to index ](#index)
-
-
-#### Step Function Intro & Comparison
+#### Step Function Intro and Comparison
 - Purpose: Serverless orchestration tools using visual workflows
 - Features
   - Visually manage components of orchestration
