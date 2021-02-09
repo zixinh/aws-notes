@@ -66,6 +66,8 @@
   - create a method upon newly created resource
   - select AWS service as integration type e.x. Step function
   - configure selected AWS service
+  
+[ back to index ](#index)
 
 
 #### Step Function Intro and Comparison
