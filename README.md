@@ -32,7 +32,6 @@
 - Only available for Amazon Linux 2 AMI
 
 [ back to index ](#index)
-[ back to topic ](#ec2)
 
 
 #### EC2 user data
@@ -40,7 +39,6 @@
 - user data is the data passed to EC2 machine and can be used by EC2 machine
 
 [ back to index ](#index)
-[ back to topic ](#ec2)
 
 
 #### Step Function Intro & Comparison
@@ -53,4 +51,3 @@
   - Not solely for orchestration, but simply a platform to connect each service together
 
 [ back to index ](#index)
-[ back to topic ](#step-function)
