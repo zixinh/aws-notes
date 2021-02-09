@@ -15,6 +15,8 @@
 
 **Networking & Content Delivery**
 - ***VPC***
+- ***API Gateway***
+  - [Mapping Template](#api-gateway-mapping-template)
 
 **Application Integration**
 - ***Step Function***
@@ -39,11 +41,15 @@
 [ back to index ](#index)
 
 
+#### API gateway mapping template
+- purpose: Transform content before sending to designated service e.x lambda or before sending back to client
+- workflow: Client → method request → integration request e.x. Mapping → aws service e.x. lambda → integration response → method response → client 
+
 
 #### Step Function Intro and Comparison
-- Purpose: #Serverless# orchestration tools using visual workflows
+- Purpose: **Serverless** orchestration tools using visual workflows
 - Features
-  - Visually manage components of orchestration
+  - **Visually** manage components of orchestration
   - Manually manage different serverless service are difficult, step functions provide a workflow-based tool to better orchestrate serverless application
 - Vs cloudwatch events
   - Cloudwatch events are not solely for serverless service
