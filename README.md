@@ -18,6 +18,7 @@
 - ***API Gateway***
   - [Mapping Template](#api-gateway-mapping-template)
   - [API Canary Deployment](#api-canary-deployment)
+  - [Integration with AWS services](#api-gateway-integration-with-aws-service)
 
 **Application Integration**
 - ***Step Function***
@@ -57,6 +58,14 @@
   - If new change is working well, click ‘promote canary’ to shift all traffic to new API
 
 [ back to index ](#index)
+
+
+#### API Gateway integration with AWS services
+- steps
+  - create a api gateway resource
+  - create a method upon newly created resource
+  - select AWS service as integration type e.x. Step function
+  - configure selected AWS service
 
 
 #### Step Function Intro and Comparison
