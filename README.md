@@ -18,7 +18,7 @@
 - ***API Gateway***
   - [Mapping Template](#api-gateway-mapping-template)
   - [API Canary Deployment](#api-canary-deployment)
-  - [Integration with AWS services](#api-gateway-integration-with-aws-service)
+  - [Integration with AWS services](#api-gateway-integration-with-aws-services)
 
 **Application Integration**
 - ***Step Function***
