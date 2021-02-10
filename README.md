@@ -28,8 +28,10 @@
 - ***CodeCommit***
   
 #### **Containers**
-- ***Docker***
+- ***ECS***
   - [Docker workflow](#docker-workflow)
+  - [Port Binding for container and host](#port-binding-for-container-and-host)
+  - [service vs task vs container instance vs ECS instance vs cluster](#service-vs-task-vs-container-instance-vs-ECS-instance-vs-cluster)
 
 ## End of Index
 
@@ -93,3 +95,22 @@
   
 [ back to topic ](#containers)
 
+#### Port Binding for container and host
+- purpose: a host has many ports for networking, container also has many ports for networking. for external traffics, container need to use host's port to send/receive traffics -- need to bind a host's port.
+- steps
+  - create a task definition
+  - add a container
+  - add distinct port mappings for each container
+  - if leave host port as empty, host would **randomly** assign a port to the container
+  
+[ back to topic ](#containers)
+
+#### service vs task vs container instance vs ECS instance vs cluster
+- cluster vs service vs task vs container instance
+  - cluster is a set of services
+  - service is a set of tasks that has the **same task definition**
+  - task is a set of container instances e.x.ECS agent
+- ECS instance is EC2 instance that containers run upon
+  - service and tasks are run upon ECS instance
+  
+[ back to topic ](#containers)
