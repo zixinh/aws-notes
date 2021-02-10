@@ -27,10 +27,11 @@
 **Developer Tools**
 - ***CodeCommit***
   
-  
+**Containers**
+- ***Docker***
+  - [Docker workflow](#docker-workflow)
+
 ## End of Index
-
-
 
 
   
@@ -80,3 +81,8 @@
   - Not solely for orchestration, but simply a platform to connect each service together
 
 [ back to index ](#index)
+
+
+#### Docker Workflow
+- build & run: Dockerfile --build--> Docker Image --run--> Docker Container
+- storage: Docker Image <--pull/push--> Docker Hub(for common container)/Amazon ECR(for customized container)
