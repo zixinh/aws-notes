@@ -3,31 +3,31 @@
 ## Index
 
 **Background**
-### **Compute**
+#### **Compute**
 - ***EC2***
   - [EC2 instance connect as an alternative to SSH ](#ec2-instance-connect-as-an-alternative-to-SSH)
   
-**Storage**
+#### **Storage**
 - ***S3***
 
-**Database**
+#### **Database**
 - ***ElastiCache***
 
-**Networking & Content Delivery**
+#### **Networking and Content Delivery**
 - ***VPC***
 - ***API Gateway***
   - [Mapping Template](#api-gateway-mapping-template)
   - [API Canary Deployment](#api-canary-deployment)
   - [Integration with AWS services](#api-gateway-integration-with-aws-services)
 
-**Application Integration**
+#### **Application Integration**
 - ***Step Function***
   - [vs Cloudwatch Events](#step-function-intro-and-comparison)
 
-**Developer Tools**
+#### **Developer Tools**
 - ***CodeCommit***
   
-**Containers**
+#### **Containers**
 - ***Docker***
   - [Docker workflow](#docker-workflow)
 
@@ -48,7 +48,7 @@
 - purpose: Transform content before sending to designated service e.x lambda or before sending back to client
 - workflow: Client → method request → integration request e.x. Mapping → aws service e.x. lambda → integration response → method response → client 
 
-[ back to index ](#index)
+[ back to topic ](#networking-and-content-delivery)
 
 
 #### API canary deployment
@@ -58,7 +58,7 @@
   - when a new change is deployed to stage A, API gateway automatically shift designated percentage of traffic to new API
   - If new change is working well, click ‘promote canary’ to shift all traffic to new API
 
-[ back to index ](#index)
+[ back to topic ](#networking-and-content-delivery)
 
 
 #### API Gateway integration with AWS services
@@ -68,7 +68,7 @@
   - select AWS service as integration type e.x. Step function
   - configure selected AWS service
   
-[ back to index ](#index)
+[ back to topic ](#networking-and-content-delivery)
 
 
 #### Step Function Intro and Comparison
@@ -80,7 +80,7 @@
   - Cloudwatch events are not solely for serverless service
   - Not solely for orchestration, but simply a platform to connect each service together
 
-[ back to index ](#index)
+[ back to topic ](#application-integration)
 
 
 #### Docker Workflow
@@ -91,5 +91,5 @@
   - Fargate: Serverless platform
   - EKS: AWS managed Kubernetes platform
   
-[ back to index ](#index)
+[ back to topic ](#containers)
 
