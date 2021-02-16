@@ -37,6 +37,7 @@
   - [Port Binding for container and host](#port-binding-for-container-and-host)
   - [service vs task vs container instance vs ECS instance vs cluster](#service-vs-task-vs-container-instance-vs-ECS-instance-vs-cluster)
   - [IAM roles in container services](#iam-roles-in-container-services)
+  - [ECS services auto scaling](#ecs-services-auto-scaling)
 
 
 ## End of Index
@@ -123,10 +124,24 @@
 
 #### IAM roles in container services
 - EC2 IAM roles
-  - for EC2 communicates to ECS
+  - for EC2 communicates to ECS and ECS to EC2 (not for fargate)
 - Task IAM roles
   - for containers in tasks to communicate to AWS service
+- Service auto scaling IAM role
+  - for ECS to use ecsAutoscaleRole
 
 [ back to topic - containers ](#containers)
 
 [ back to topic - security and identity ](#security-and-identity)
+
+#### ECS services auto scaling
+- purpose: if task reaches some limits, auto scale-in or scale-out to accommodate demands
+- EC2 vs fargate vs docker-based elastic beanstalk
+  - EC2: create auto scaling for both ECS service and EC2 instances
+  - fargate: create auto scaling for service only
+  - EB: create auto scaling for EC2 only -- tasks automatically created when a new EC2 instance is deployed
+- scaling policy:
+  - step scaling: more advanced and fine-tuned config when certain alarm is triggered --- able to create detailed steps to adjust alarmed situation
+  - target tracking: scale in and out to meet a value of a metric
+  
+[ back to topic - containers ](#containers)
