@@ -13,6 +13,10 @@
 #### **Database**
 - ***ElastiCache***
 
+#### **Security, Identity & Compliance**
+- ***IAM***
+  - [IAM roles in container services](#iam-roles-in-container-services)
+
 #### **Networking and Content Delivery**
 - ***VPC***
 - ***API Gateway***
@@ -32,6 +36,8 @@
   - [Docker workflow](#docker-workflow)
   - [Port Binding for container and host](#port-binding-for-container-and-host)
   - [service vs task vs container instance vs ECS instance vs cluster](#service-vs-task-vs-container-instance-vs-ECS-instance-vs-cluster)
+  - [IAM roles in container services](#iam-roles-in-container-services)
+
 
 ## End of Index
 
@@ -87,7 +93,7 @@
 
 #### Docker Workflow
 - build & run: Dockerfile --build--> Docker Image --run--> Docker Container
-- storage: Docker Image <--pull/push--> Docker Hub(for common container)/Amazon ECR(for customized container)
+- storage: Docker Image <--pull/push--> Docker Hub(for common container)/Amazon ECR(for customized/private container)
 - management:
   - ECS: AWS own platform
   - Fargate: Serverless platform
@@ -114,3 +120,9 @@
   - service and tasks are run upon ECS instance
   
 [ back to topic ](#containers)
+
+#### IAM roles in container services
+- EC2 IAM roles
+  - for EC2 communicates to ECS
+- Task IAM roles
+  - for containers in tasks to communicate to AWS service
