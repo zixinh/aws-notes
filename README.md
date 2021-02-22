@@ -20,6 +20,7 @@
 #### **Management and Governance**
 - ***OpsWorks***
   - [OpsWorks vs Cloudformation](#opsworks-vs-cloudformation)
+  - [OpsWorks Lifecycle Events](#opsworks-lifecycle-events)
 
 #### **Networking and Content Delivery**
 - ***VPC***
@@ -63,8 +64,25 @@
   - Cloudformation is for infrastructure provisioning -- to manage hardwares
 - Similarities
   - Both use infrastructure-as-code
-  - Both can do a little bit of other's job. Cloudformation can manage configuration as well but not in-depth, same for OpsWorks.
+  - Both can do a little bit of other's job. Cloudformation can manage configuration as well but not in-depth; OpsWorks can also provision servers but not in-depth.
 
+[ back to topic ](#management-and-governance)
+
+#### OpsWorks lifecycle events
+- each layer has a set of 5 lifecycle event and each lifecycle event has associated with a set of Chef recipes
+- 5 lifecycle events
+  - setup: when a server is booted, run recipes to set up server
+  - configure: occurs on **all instances** when
+  1) an instance enters or leaves an online state, 
+  2) EIP is associated or disassociated from an instance
+  3) new load balancer is attached or detached to/from a layer
+  - deploy
+  - undeploy
+  - shutdown
+- instance-specific vs instance-universal
+  - for setup, deploy, undeploy and shutdown -- instance-specific, that is, recipes are only run upon specific instance that triggered lifecycle event
+  - for configure event -- instance-universal, that is, when a single instance has a configrue lifecycle event, the set of recipes are run upon all instances
+  
 [ back to topic ](#management-and-governance)
 
 
