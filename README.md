@@ -17,6 +17,10 @@
 - ***IAM***
   - [IAM roles in container services](#iam-roles-in-container-services)
 
+#### **Management and Governance**
+- ***OpsWorks***
+  - [OpsWorks vs Cloudformation](#opsworks-vs-cloudformation)
+
 #### **Networking and Content Delivery**
 - ***VPC***
 - ***API Gateway***
@@ -51,6 +55,17 @@
 - Only available for Amazon Linux 2 AMI
 
 [ back to topic ](#compute)
+
+
+#### OpsWorks vs Cloudformation
+- Difference
+  - OpsWorks is for configuration management -- to manage softwares on existing servers
+  - Cloudformation is for infrastructure provisioning -- to manage hardwares
+- Similarities
+  - Both use infrastructure-as-code
+  - Both can do a little bit of other's job. Cloudformation can manage configuration as well but not in-depth, same for OpsWorks.
+
+[ back to topic ](#management-and-governance)
 
 
 #### API gateway mapping template
