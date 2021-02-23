@@ -20,6 +20,7 @@
 #### **Management and Governance**
 - ***CloudTrail***
   - [CloudTrail vs Cloudwatch Logs](#cloudtrail-vs-cloudwatch-logs)
+  - [CloudTrail Validation](#cloudtrail-validation)
 - ***OpsWorks***
   - [OpsWorks vs Cloudformation](#opsworks-vs-cloudformation)
   - [OpsWorks Lifecycle Events](#opsworks-lifecycle-events)
@@ -61,12 +62,31 @@
 
 
 #### CloudTrail vs Cloudwatch Logs
-- Difference
+- Difference 1
   - CloudTrail is for detailed API logging, including
     - who made the API call
     - what's the API call request
     - what's the response of API call
-  - Cloudwatch logs may capture general info of API calls, but would not capture in great details
+  - Cloudwatch logs may capture general info of API calls, but would not capture in great details **if CloudTrail is not enabled** 
+- Difference 2 
+  - CloudTrail provides search & filter tools to find specific API records in console
+  - Cloudwatch does not have such tool and may need to manually set up a database or other programs to do search & filter
+
+[ back to topic ](#management-and-governance)
+
+#### CloudTrail Validation
+- digest file vs log file
+  - log file: all API records stored in S3 in a timely manner
+  - digest file: **hashed** version of log file, stored in S3 once in an hour
+- validation
+  - use CLI command 
+```
+aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
+```
+  - aws would compare digest file and log file and see if hashed version is matched with log file
+
+[ back to topic ](#management-and-governance)
+
 
 #### OpsWorks vs Cloudformation
 - Difference
