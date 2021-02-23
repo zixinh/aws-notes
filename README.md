@@ -79,11 +79,10 @@
   - log file: all API records stored in S3 in a timely manner
   - digest file: **hashed** version of log file, stored in S3 once in an hour
 - validation
-  - use CLI command 
+  - aws would compare digest file and log file and see if hashed version is matched with log file by using following CLI command 
 ```
 aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
 ```
-  - aws would compare digest file and log file and see if hashed version is matched with log file
 
 [ back to topic ](#management-and-governance)
 
