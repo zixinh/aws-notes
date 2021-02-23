@@ -18,6 +18,8 @@
   - [IAM roles in container services](#iam-roles-in-container-services)
 
 #### **Management and Governance**
+- ***CloudTrail***
+  - [CloudTrail vs Cloudwatch Logs](#cloudtrail-vs-cloudwatch-logs)
 - ***OpsWorks***
   - [OpsWorks vs Cloudformation](#opsworks-vs-cloudformation)
   - [OpsWorks Lifecycle Events](#opsworks-lifecycle-events)
@@ -58,6 +60,14 @@
 [ back to topic ](#compute)
 
 
+#### CloudTrail vs Cloudwatch Logs
+- Difference
+  - CloudTrail is for detailed API logging, including
+    - who made the API call
+    - what's the API call request
+    - what's the response of API call
+  - Cloudwatch logs may capture general info of API calls, but would not capture in great details
+
 #### OpsWorks vs Cloudformation
 - Difference
   - OpsWorks is for configuration management -- to manage softwares on existing servers
@@ -73,9 +83,9 @@
 - 5 lifecycle events
   - setup: when a server is booted, run recipes to set up server
   - configure: occurs on **all instances** when
-  1) an instance enters or leaves an online state, 
-  2) EIP is associated or disassociated from an instance
-  3) new load balancer is attached or detached to/from a layer
+    - an instance enters or leaves an online state, 
+    - EIP is associated or disassociated from an instance
+    - new load balancer is attached or detached to/from a layer
   - deploy
   - undeploy
   - shutdown
