@@ -1,4 +1,4 @@
-# aws-devops-study-notes
+# aws-study-notes
 
 ## Index
 
