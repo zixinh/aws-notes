@@ -2,7 +2,10 @@
 
 ## Index
 
-**Background**
+#### **Background**
+- ****OSI Model***
+  - [OSI regroup](#osi-regroup)
+
 #### **Compute**
 - ***EC2***
   - [EC2 instance connect as an alternative to SSH ](#ec2-instance-connect-as-an-alternative-to-SSH)
@@ -50,6 +53,21 @@
 
 ## End of Index
 
+
+#### OSI Regroup
+- 3 main groups
+  - group 1: layer 1(bit),2(frame)
+    - layer 1 is physical layer -- mechanisms of physical transmission and reception of bits
+    - layer 2 is Data link -- provide reliability of layer 1 between **2 nodes**
+  - group 2: layer 3(packet),4(segment/datagram)
+    - layer 3 is network layer -- mechanisms of multi-nodes transmission 
+    - layer 4 is transport layer -- provide reliability of layer 3 between multiple nodes
+  - group 3: layer 5,6,7 (all data)
+    - layer 5 for maintaining a session
+    - layer 6 for encode/decode, decrypt/encrypt
+    - layer 7 for high-level APIs 
+
+[ back to topic ](#background)
 
   
 #### EC2 instance connect as an alternative to SSH 
