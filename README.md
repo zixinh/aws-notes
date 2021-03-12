@@ -58,10 +58,10 @@
 - 3 main groups
   - group 1: layer 1(bit),2(frame)
     - layer 1 is physical layer -- mechanisms of physical transmission and reception of bits
-    - layer 2 is Data link -- provide reliability of layer 1 between **2 nodes**
+    - layer 2 is Data link -- manage layer 1 between **2 nodes** -- collision detection, unicast transmission, able to use switches etc.
   - group 2: layer 3(packet),4(segment/datagram)
-    - layer 3 is network layer -- mechanisms of multi-nodes transmission 
-    - layer 4 is transport layer -- provide reliability of layer 3 between multiple nodes
+    - layer 3 is network layer -- mechanisms of multi-nodes transmission -- routing, traffic control
+    - layer 4 is transport layer -- manage layer 3 between multiple nodes -- acknowledgement, segmentation etc.
   - group 3: layer 5,6,7 (all data)
     - layer 5 for maintaining a session
     - layer 6 for encode/decode, decrypt/encrypt
