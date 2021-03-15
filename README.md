@@ -6,6 +6,7 @@
 - ****networking****
   - [OSI key takeaways](#osi-key-takeaways)
   - [Purpose of subnet mask](#purpose-of-subnet-mask)
+  - [Network Address Translation (NAT)](#network-address-translation)
 
 #### **Compute**
 - ***EC2***
@@ -57,16 +58,17 @@
 
 #### OSI key takeaways
 - 3 main groups
-  - group 1: layer 1(bit),2(frame)
+  - group 1 - 2 nodes transmission: layer 1(bit),2(frame) 
     - layer 1 is physical layer -- mechanisms of physical transmission and reception of bits
     - layer 2 is Data link -- manage layer 1 between **2 nodes** -- collision detection, unicast transmission, able to use switches etc.(using MAC)
-  - group 2: layer 3(packet),4(segment/datagram)
-    - layer 3 is network layer -- mechanisms of **multi-nodes** transmission -- routing, traffic control, for single multi-node transmission, multiple multi-node transmission are managed by layer 4 (using IP protocol)
+  - group 2 - multi-nodes transmission: layer 3(packet),4(segment/datagram)
+    - layer 3 is network layer -- mechanisms of **multi-nodes** transmission -- routing, traffic control, for multi-node transmission of single packet; multiple packets multi-node transmission are managed by layer 4 (using IP protocol)
     - layer 4 is transport layer -- manage layer 3 between multiple nodes to ensure reliability and integrity -- acknowledgement, segmentation etc.
-  - group 3: layer 5,6,7 (all data)
+  - group 3 - application data: layer 5,6,7 (all data)
     - layer 5 for maintaining a session
     - layer 6 for encode/decode, decrypt/encrypt
     - layer 7 for high-level APIs 
+- note: OSI is conceptual, many stuff lays between each layer. e.x. ARP between layer 2 and layer 3 to resolve IP address to MAC address
 
 [ back to topic ](#background)
 
@@ -76,6 +78,18 @@
 - real purpose: 
   - to let router know if packet is for local or remote so router can send them correspondingly
   - router can determine next hop target more efficiently given packet destination ip --> reduce the size of route table
+
+[ back to topic ](#background)
+
+#### Network Address Translation
+- purpose: overcome ipv4 shortage
+- type
+  - static NAT (e.x. internet gateway): 1 private to 1 fixed public 
+  - dynamic NAT: 1 private to first available public 
+  - port address translation (e.x. AWS NAT gateway): many private to 1 public using ports to identify
+- port address translation mechanism
+  - NAT gateway maintains a NAT translation table which maps client's private ipv 4 & port to NAT's public ipv4 & port
+  - during connection, NAT translate received packets on a port to corresponding client in private network
 
 [ back to topic ](#background)
 
