@@ -8,6 +8,7 @@
   - [Purpose of subnet mask](#purpose-of-subnet-mask)
   - [Network Address Translation (NAT)](#network-address-translation)
   - [IPv4 public private addressing](#ipv4-public-private-addressing)
+  - [TLS and SSL mechanism](#tls-and-ssl-mechanism)
 
 #### **Compute**
 - ***EC2***
@@ -74,14 +75,6 @@
 [ back to topic ](#background)
 
 
-#### Purpose of subnet mask
-- appeared purpose: to differentiate network and host 
-- real purpose: 
-  - to let router know if packet is for local or remote so router can send them correspondingly
-  - router can determine next hop target more efficiently given packet destination ip --> reduce the size of route table
-
-[ back to topic ](#background)
-
 #### Network Address Translation
 - purpose: overcome ipv4 shortage
 - type
@@ -95,6 +88,14 @@
 
 [ back to topic ](#background)
 
+#### Purpose of subnet mask
+- appeared purpose: to differentiate network and host 
+- real purpose: 
+  - to let router know if packet is for local or remote so router can send them correspondingly
+  - router can determine next hop target more efficiently given packet destination ip --> reduce the size of route table
+
+[ back to topic ](#background)
+
 #### ipv4 public private addressing
 - public addressing
   - Class addressing
@@ -103,7 +104,9 @@
     - Class C: first 24 bits as network, rest bits as hosts
     - Class D & E: special usage
   - Classless addressing
-    - each first bits as network, rest bits as hosts   
+    - each first bits as network, rest bits as hosts
+    - good for IP subnetting
+    - size of /n = 2 * /n+1    
 - private addressing
   - why standardize? - to ensure accurate execution of public & private address translation 
   - 10.0.0.0 to 10.255.255.255 (size of 1 class A network)
@@ -111,6 +114,35 @@
   - 192.168.0.0 to 192.168.255.255 (size of 256 class C networks)
 
 [ back to topic ](#background)
+
+#### TLS and SSL mechanism
+- key players
+  - certificte authority (CA) -- independent org that browsers and servers trust
+  - browser
+  - server
+- Basic encryption principles
+  - Public keys can be verified as a key from a valid source from anywhere
+  - Any message encrypted by a public key can only be decrypted by corresponding private key
+- Key phases
+  1 client trusts server with help of CA certificates
+  2 master key creation and synchronization
+  3 Connection is established using master key
+- mechanism
+  - client sends a SSL/TLS request to server
+  - server generates a public & private key pairs and a certificate signing request(CSR) to CA
+  - CA returns a signed certificate to server
+  - server sends back the signed certificate to client
+  - client validates the signed certificate 
+  - phase 1 ends ---- server is trusted by client
+  - client creates a master key and encrypts it using public key of signed certificate
+  - client sends the encrypted master key to server
+  - server decrypts the encrypted master key using private key of the key pair
+  - phase 2 ends ---- client and server both know the master key for encryption and decryption of future data
+  - SSL/TLS connection is established 
+  - phase 3 ends
+
+[ back to topic ](#background)
+
 
 #### EC2 instance connect as an alternative to SSH 
 - A browser based terminal 
