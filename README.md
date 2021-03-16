@@ -7,6 +7,7 @@
   - [OSI key takeaways](#osi-key-takeaways)
   - [Purpose of subnet mask](#purpose-of-subnet-mask)
   - [Network Address Translation (NAT)](#network-address-translation)
+  - [IPv4 public private addressing](#ipv4-public-private-addressing)
 
 #### **Compute**
 - ***EC2***
@@ -90,10 +91,27 @@
 - port address translation mechanism
   - NAT gateway maintains a NAT translation table which maps client's private ipv 4 & port to NAT's public ipv4 & port
   - during connection, NAT translate received packets on a port to corresponding client in private network
+  - limit: for outbound traffic only. initial inbound traffic to private device cannot be established if specific port of public ipv4 is not provided. even a specific port is provided, NAT table needs to have a entry to a private device given that public port 
 
 [ back to topic ](#background)
 
-  
+#### ipv4 public private addressing
+- public addressing
+  - Class addressing
+    - Class A: first 8 bits as network, rest bits as hosts
+    - Class B: first 16 bits as network, rest bits as hosts
+    - Class C: first 24 bits as network, rest bits as hosts
+    - Class D & E: special usage
+  - Classless addressing
+    - each first bits as network, rest bits as hosts   
+- private addressing
+  - why standardize? - to ensure accurate execution of public & private address translation 
+  - 10.0.0.0 to 10.255.255.255 (size of 1 class A network)
+  - 172.16.0.0 to 172.31.255.255 (size of 16 class B networks)
+  - 192.168.0.0 to 192.168.255.255 (size of 256 class C networks)
+
+[ back to topic ](#background)
+
 #### EC2 instance connect as an alternative to SSH 
 - A browser based terminal 
 - Where to access?
