@@ -26,6 +26,7 @@
   - [IAM policy in depth](#iam-policy-in-depth)
   - [IAM role trust policy](#iam-role-trust-policy)
 - ***STS***
+  - [sts:AssumeRole in depth](#sts:assumerole-in-depth)
 
 #### **Management and Governance**
 - ***CloudTrail***
@@ -296,10 +297,10 @@ aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
 - permission policy has 2 main type: identity-based and resource-based
   - identity-based
     - create/manage in IAM or inline policy
-    - attach to an identity e.x. role/user/group
-      - since it's attached to an identity, the policy does not have principal option as the principal is defined by identity itself
+    - attach to an identity type e.x. role/user/group
+      - since it's attached to an identity type, the policy does not have principal option as the principal is defined by identity type itself
     - usage
-      1. attach to an identity
+      1. attach to an identity type
       2. after attachment, IAM automatically generates a trust policy in the identity and grant value in principal field
   - resource-based
     - attach to resource directly e.x. S3 bucket policy or IAM role trust policy
@@ -312,7 +313,21 @@ aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
 
 #### IAM role trust policy
 - a resource-based policy where resource is IAM service 
+- purpose is to control who can assume the role e.x. if API gateway can use this role
 - IAM role = trust policy + identity-based policy = a resource-based policy
+
+[ back to topic - security and identity ](#security-and-identity)
+
+
+#### sts:AssumeRole in depth
+- each IAM role has an action of sts:AssumeRole in its trust policy
+- purpose is to allow other identities e.x. aws individual service/resource like EKS to use permissions of AWS resources
+- procedure
+  - an identity/resource Z with service type of X has an IAM role Y which has AWS service X as its principal service and sts:AssumeRole as its action, also a permission policy to access certain resource E
+  - when Z wants to access E
+  - as STS is part of Z's IAM role's action, STS check with its permission policy to see if Z has the privilege to use E
+  - if yes, then STS creates a temporary credentials with an expiration date for Z to access E 
+  - therefore, sts assume role to Z to use specified permission in role Y
 
 [ back to topic - security and identity ](#security-and-identity)
 
