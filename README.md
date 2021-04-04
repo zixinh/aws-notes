@@ -23,6 +23,8 @@
 #### **Security and Identity**
 - ***IAM***
   - [IAM roles in container services](#iam-roles-in-container-services)
+  - [IAM policy in depth](#iam-policy-in-depth)
+  - [IAM role trust policy](#iam-role-trust-policy)
 - ***STS***
 
 #### **Management and Governance**
@@ -290,16 +292,29 @@ aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
 [ back to topic - security and identity ](#security-and-identity)
 
 
-#### IAM POLICY trust vs permission and resource based vs identity based
-- trust policy vs permission policy
-  - each IAM role has 2 policy, one is trust policy and the other is permission policy
-  - trust policy is to define who (called principals) can use this role. principals could be roles/users/accounts/services
-    - e.x. principals: EKS -- EKS can use this role and able to access to resources and actions by its permission policy
-  - permission policy is to define which resource & actions a role can use. resource is a specific resource of an aws service and action refers to specific action of a resource can do
-    - e.x. resource: S3 bucket aws-test-bucket-67321 and action is read S3 bucket
+#### IAM policy in depth
+- permission policy has 2 main type: identity-based and resource-based
+  - identity-based
+    - create/manage in IAM or inline policy
+    - attach to an identity e.x. role/user/group
+      - since it's attached to an identity, the policy does not have principal option as the principal is defined by identity itself
+    - usage
+      1. attach to an identity
+      2. after attachment, IAM automatically generates a trust policy in the identity and grant value in principal field
+  - resource-based
+    - attach to resource directly e.x. S3 bucket policy or IAM role trust policy
+    - must include principal option
+    - usage
+      1. edit resource policy directly e.x. S3 bucket policy
+      2. attach an IAM role 
 
-- resource-based vs identity-based 
-  - both are permission policy, not trust policy
+[ back to topic - security and identity ](#security-and-identity)
+
+#### IAM role trust policy
+- a resource-based policy where resource is IAM service 
+- IAM role = trust policy + identity-based policy = a resource-based policy
+
+[ back to topic - security and identity ](#security-and-identity)
 
 
 #### ECS services auto scaling
