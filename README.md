@@ -23,6 +23,7 @@
 #### **Security and Identity**
 - ***IAM***
   - [IAM roles in container services](#iam-roles-in-container-services)
+- ***STS***
 
 #### **Management and Governance**
 - ***CloudTrail***
@@ -287,6 +288,19 @@ aws cloudtrail validate-logs --start-time XXXX --trail-arn XXXX --profile XXX
 [ back to topic - containers ](#containers)
 
 [ back to topic - security and identity ](#security-and-identity)
+
+
+#### IAM POLICY trust vs permission and resource based vs identity based
+- trust policy vs permission policy
+  - each IAM role has 2 policy, one is trust policy and the other is permission policy
+  - trust policy is to define who (called principals) can use this role. principals could be roles/users/accounts/services
+    - e.x. principals: EKS -- EKS can use this role and able to access to resources and actions by its permission policy
+  - permission policy is to define which resource & actions a role can use. resource is a specific resource of an aws service and action refers to specific action of a resource can do
+    - e.x. resource: S3 bucket aws-test-bucket-67321 and action is read S3 bucket
+
+- resource-based vs identity-based 
+  - both are permission policy, not trust policy
+
 
 #### ECS services auto scaling
 - purpose: if task reaches some limits, auto scale-in or scale-out to accommodate demands
