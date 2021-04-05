@@ -27,6 +27,7 @@
   - [IAM role trust policy](#iam-role-trust-policy)
 - ***STS***
   - [sts:AssumeRole in depth](#sts-assume-role-in-depth)
+  - [IAM role revoke old session](#iam-role-revoke-old-session)
 
 #### **Management and Governance**
 - ***CloudTrail***
@@ -186,13 +187,33 @@
 
 #### STS assume role in depth
 - each IAM role has an action of sts:AssumeRole in its trust policy
-- purpose is to allow other identities e.x. aws individual service/resource like EKS to use permissions of AWS resources
-- procedure
+- **purpose** is to allow other identities e.x. aws individual service/resource like EKS to use permissions of AWS resources
+- **procedure**
   - an identity/resource Z with service type of X has an IAM role Y which has AWS service X as its principal service and sts:AssumeRole as its action, also a permission policy to access certain resource E
   - when Z wants to access E
   - as STS is part of Z's IAM role's action, STS check with its permission policy to see if Z has the privilege to use E
   - if yes, then STS creates a temporary credentials with an expiration date for Z to access E 
   - therefore, sts assume role to Z to use specified permission in role Y
+- **temporary credential structure**
+  - Access key ID
+  - secret access key
+  - session token
+    - STS created a distinct token for each resource that assumes this role
+  - expiration
+
+[ back to topic - security and identity ](#security-and-identity)
+
+
+#### IAM role revoke old session
+- *purpose*
+  - session token may be leaked to hackers so hackers can access to AWS resources 
+  - unable to delete specific session token of a role until expiration & unable to delete the IAM role entirely if the IAM role is used by large number of resources e.x. 100 EC2 instances
+  - the option to revoke old session denies hackers to continue making use of leaked token to access AWS service
+- *steps*
+  - go to individual IAM role in IAM console
+  - click the most right tabs 'Revoke sessions'
+  - enable 'revoke active sessions'
+  - a new inline policy 'AWSRevokeOlderSessions' is available in 'permission policy' tab, which deny access if the session issue date is less than a specified time.
 
 [ back to topic - security and identity ](#security-and-identity)
 
